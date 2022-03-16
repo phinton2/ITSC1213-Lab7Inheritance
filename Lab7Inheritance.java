@@ -10,7 +10,7 @@ import java.util.*;
  * @author Paydreanne E. Hinton
  * instructor Professor Van Custodio
  * courseSection ITSC1213-106-27949
- * lab 6 & 7
+ * lab 6 & 7; Module 9
  * The following program executes the Lab 7 Inheritance Program
  */
 public class Lab7Inheritance {
@@ -68,9 +68,9 @@ public class Lab7Inheritance {
         // Module 7 Part C
         System.out.println("Is Student 1 the same as Student 2?");
         System.out.println(s1.equals(s4) + "\n"); // prints false
-        Student s5 = new Student("Xavier", "Cato", 900111222, "CS", 3.5, 75);
+        Student s05 = new Student("Xavier", "Cato", 900111222, "CS", 3.5, 75);
         System.out.println("Is Student 1 the same as Student 5?");
-        System.out.println(s1.equals(s5)); // prints true
+        System.out.println(s1.equals(s05)); // prints true
         
         // Module 7 Part D
         // This person array can hold the subclass obejcts too
@@ -84,6 +84,74 @@ public class Lab7Inheritance {
         for (Person person : personList) {
             System.out.println(person);
         }
+        
+        
+        
+        
+        System.out.println("\n\n\n===========================");
+        System.out.println("MODULE 9 PARTS D, E, AND F");
+        System.out.println("===========================");
+        System.out.println("\n*** Part D ***");
+        ArrayList<Person> list = new ArrayList();
+        
+        list.add(p);
+        list.add(s1);
+        list.add(s2);
+        list.add(s3);
+        list.add(s4);
+        list.add(prof1);
+        
+        Person p2 = new Person("Elle", "Kambol", 800);
+        list.add(p2);
+        
+        Professor prof2 = new Professor("Frank", "Black", 801, "Math", 85000);
+        list.add(prof2);
+        
+        Student s5 = new Student("Grace", "Maxeem", 903, "Psychology", 3.4, 95);
+        list.add(s5);
+        
+        for (Person person : list) {
+            person.display();
+        }
+        
+        
+        System.out.println("\n\n*** Part E ***");
+        for (Person person : list) {
+            if (matchId(person, 903) == true) {
+                person.display();
+            }
+        }
+        
+        
+        System.out.println("\n\n*** Part F ***");
+        Person p3 = new Student("Maya", "Adams", 700, "Music", 3.5, 105);
+        System.out.println(((Student)p3).getGPA());
+        
+        Person p4 = new Person("Bob", "Lowe", 701);
+        if (p4 instanceof Student) {
+            System.out.println(((Student)p4).getGPA());
+        }
+        
+        System.out.println("Students eligible for scholarship: ");
+        for (Person person : list) {
+            if (person instanceof Student && ((Student)person).getGPA() > 3.5) {
+                System.out.println("\t" + person.getFirstName() + " " + person.getLastName());
+            }
+        }
+        System.out.println("\nProfessors in CS: ");
+        for (Person person : list) {
+            if (person instanceof Professor && ((Professor)person).getDepartment().equals("CS")) {
+                System.out.println("\t" + person.getFirstName() + " " + person.getLastName());
+            }
+        }
+        
     }
-    
+        // PART E
+        public static boolean matchId(Person p, int id) {
+            if (p.getId() == id) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 }
