@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package lab7inheritance;
+package pkg1213module8;
 import java.util.*;
 
 /**
@@ -130,6 +130,7 @@ public class Lab7Inheritance {
         Person p4 = new Person("Bob", "Lowe", 701);
         if (p4 instanceof Student) {
             System.out.println(((Student)p4).getGPA());
+            Student exus = ((Student)p4); // INTERESTING...
         }
         
         System.out.println("Students eligible for scholarship: ");
